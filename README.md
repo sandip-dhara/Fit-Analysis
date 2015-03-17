@@ -1,12 +1,12 @@
-# Application-Rationalization v2.1
+# Fit-Analysis v2.2
 Application that determines whether an application is a good fit for SFDC platform.
 
 History
 -------------------------------------------
-03/13	Sandip Dhara	Created v2.1
+03/13	Sandip Dhara	Created v2.2
 -------------------------------------------
 
-Changes in Version 2.1 from 1.0
+Changes in Version 2.2 from 1.0
 -------------------------------------------
 1. Removed master-detail relationship to Milestone1_Project object
 2. Updated page layout to correspond to object definition provided in original file. Fields were renamed in page layouts, but not reflected in object definition.
