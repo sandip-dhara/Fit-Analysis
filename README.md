@@ -20,5 +20,6 @@ Changes in Version 2.2 from 1.0
 10. Created tab for FitAnalysis
 11. Created app for FitAnalysis
 12. Created permission set, FitAnalysis User. If you don't see the new app and tab, add the permission set to your login
+13. Added actual csv file, extract_fit_analysis.csv with analysis from current project
 
  
