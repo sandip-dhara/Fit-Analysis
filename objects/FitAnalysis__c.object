@@ -1,0 +1,2014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The project fit analysis results - part of app portfolio rationalization</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ACS__c</fullName>
+        <description>Audit and Compliance Status</description>
+        <externalId>false</externalId>
+        <formula>/*CASE(LEFT(TEXT(Audit_Compliance_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Audit_Compliance_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Audit_Compliance_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Audit_Compliance_Weight__c)),0)*/
+
+CASE(LEFT(TEXT(Audit_Compliance_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;,  IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;),
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Audit and Compliance Status</inlineHelpText>
+        <label>ACS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ARS__c</fullName>
+        <description>Availability and Reliability Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Availability_Reliability_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Availability and Reliability Status</inlineHelpText>
+        <label>ARS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Application_Description__c</fullName>
+        <description>Description of application functionality</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of application functionality</inlineHelpText>
+        <label>Application Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Application_Name__c</fullName>
+        <description>Name of the application the fit analysis is for</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the name of the application the fit analysis is for</inlineHelpText>
+        <label>Application Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Assessment_Date__c</fullName>
+        <description>Date the fit analysis was performed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the fit analysis was performed</inlineHelpText>
+        <label>Assessment Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Audit_Compliance_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Audit &amp; Compliance Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Audit_Compliance_Response__c</fullName>
+        <description>Will Standard Audit and Compliance meet requirements ? Or is page views part of Compliance ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will Standard Audit and Compliance meet requirements ? Or is page views part of Compliance ?</inlineHelpText>
+        <label>Audit &amp; Compliance Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Tracking who has seen what, run what reports, exported what data, etc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: DO NOT USE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Login audit trail for all users. Field history to selectively track updates. Setup audit trail for admin actions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Audit_Compliance_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Audit_Compliance_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Audit_Compliance_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Audit_Compliance_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Audit_Compliance_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Audit &amp; Compliance Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Audit_Compliance_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Audit &amp; Compliance Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Availability_Reliability_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Availability &amp; Reliability Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Availability_Reliability_Response__c</fullName>
+        <description>Is the requirement outside of 99.9 % availability ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the requirement outside of 99.9 % availability ?</inlineHelpText>
+        <label>Availability &amp; Reliability Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low:  99.999</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: 99.99</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: 99.9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Availability_Reliability_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Availability &amp; Reliability Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Availabilty_Reliability_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Availability_Reliability_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Availability_Reliability_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Availability_Reliability_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Availability_Reliability_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Availabilty &amp; Reliability Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BPS__c</fullName>
+        <description>Business Process Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Business_Process_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Business Process Status</inlineHelpText>
+        <label>BPS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Process_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Business Process Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Business_Process_Response__c</fullName>
+        <description>Utilize the standard UI and Page Elements in Salesforce ? Follow standard business processes?  or desire to create complex consumer oriented screens and processes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Utilize the standard UI and Page Elements in Salesforce ? Follow standard business processes?  or desire to create complex consumer oriented screens and processes.</inlineHelpText>
+        <label>Business Process Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Complex multi-step, multi-system business orchestration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: Custom process can be developed in Apex but developer skills required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: OOTB Capabilities for approval workflow, status tracking and notification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Business_Process_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Business_Process_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Business_Process_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Business_Process_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Business_Process_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Business Process Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Process_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Business Process Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CS__c</fullName>
+        <description>Computation Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Computation_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Computation Status</inlineHelpText>
+        <label>CS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Computation_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Computation Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Computation_Response__c</fullName>
+        <description>Use salesforce formulas or batch processing or complex simulations ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use salesforce formulas or batch processing or complex simulations ?</inlineHelpText>
+        <label>Computation Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Complex maths, simulations, code-breaking, real-time games, video encoding, etc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium:  Batch computation process can be developed in Apex but developer skills required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Formula fields, aggregated master-detail data, tabulation total/subtotals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Computation_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Computation_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Computation_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Computation_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Computation_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Computation Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Computation_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Computation Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>DSS__c</fullName>
+        <description>Data Security Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Data_Security_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Data Security Status</inlineHelpText>
+        <label>DSS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DTS__c</fullName>
+        <description>Data Type Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Data_Types_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Data Type Status</inlineHelpText>
+        <label>DTS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DVS__c</fullName>
+        <description>Data Volume Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Data_Volume_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Data Volume Status</inlineHelpText>
+        <label>DVS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Security_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Data Security Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Data_Security_Response__c</fullName>
+        <description>Will the standard Salesforce.com security features satisfy the requirements ? DRO ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will the standard Salesforce.com security features satisfy the requirements ? DRO ?</inlineHelpText>
+        <label>Data Security Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Higher-grade government/military security classifications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium:  Data residency requirements. Customer-managed encryption keys requires developer support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Compliant with Security certifications including SysTrust, GSA, SAS 70, and HL7, PCI, EU/US Safe Harbor. Field level encryption for sensitive data</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Data_Security_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Data_Security_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Data_Security_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Data_Security_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Data_Security_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Data Security Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Security_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Data Security Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Data_Types_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Data Types Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Data_Types_Response__c</fullName>
+        <description>Salesforce standard fields and documents (word, ppt) ?
+Is the requirement to post process data and produce custom formats ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Salesforce standard fields and documents (word, ppt) ?
+Is the requirement to post process data and produce custom formats ?</inlineHelpText>
+        <label>Data Types Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Native file processing/creation/editing. Direct file streaming (audio/video)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: Rendering data to other formats (e.g. PDF) developer skills needed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Common database types (number, text, date, etc). Store and preview common file types (e.g. ppt, pdf)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Data_Types_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Data_Types_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Data_Types_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Data_Types_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Data_Types_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Data Types Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Types_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Data Types Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Data_Volume_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Data Volume Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Data_Volume_Response__c</fullName>
+        <description>How much data is being fed into Salesforce ? by Object ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How much data is being fed into Salesforce ? by Object ?</inlineHelpText>
+        <label>Data Volume Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: More than 10M records per object, File Size &gt; 2GB, archiving solutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: 1M - 10M records per object</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Less than 1M records per object</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Data_Volume_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Data_Volume_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Data_Volume_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Data_Volume_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Data_Volume_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Data Volume Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Volume_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Data Volume Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Display_Fit_Percentage__c</fullName>
+        <description>Fit Percentage - This is the field that should be displayed on the screen</description>
+        <externalId>false</externalId>
+        <formula>Fit_Percentage__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Fit Percentage = Overall Score / Max Possible Score</inlineHelpText>
+        <label>Fit Percentage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Display_Overall_Score__c</fullName>
+        <description>Displays Overall Score as formula field so it can&apos;t be edited</description>
+        <externalId>false</externalId>
+        <formula>Overall_Score__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Overall Score</inlineHelpText>
+        <label>Overall Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fit_Percentage__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Measures the fit on a scale up to from 0% to 100%</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Measures the fit on a scale up to from 0% to 100%</inlineHelpText>
+        <label>Calculated Fit Percentage</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>ICS__c</fullName>
+        <description>Integration Complexity Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Integration_Complexity_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Integration Complexity Status</inlineHelpText>
+        <label>ICS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IS__c</fullName>
+        <description>Internationalization Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Internationalization_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Internationalization Status</inlineHelpText>
+        <label>IS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Integration_Complexity_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Integration Complexity Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Integration_Complexity_Response__c</fullName>
+        <description>Is device level integration desired or will Web service callouts meet the requirements ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is device level integration desired or will Web service callouts meet the requirements ?</inlineHelpText>
+        <label>Integration Complexity Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Direct device integration/transaction/data-logging</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: Custom REST/SOAP APIs with developer support. Bi-directional data synchronisation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Extensive REST/SOAP APIs. Web service callouts in workflows</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Integration_Complexity_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Integration_Complexity_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Integration_Complexity_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Integration_Complexity_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Integration_Complexity_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Integration Complexity Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Integration_Complexity_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Integration Complexity Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Internationalization_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Internationalization Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Internationalization_Response__c</fullName>
+        <description>Leverage Standard Translation workbench capabilities for translation ? Or build UI by country ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Leverage Standard Translation workbench capabilities for translation ? Or build UI by country ?</inlineHelpText>
+        <label>Internationalization Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Substantially different Uis for different geographies</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: DO NOT USE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Easy translation of standard and custom UI labels. Multi-currency support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Internationalization_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Internationalization_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Internationalization_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Internationalization_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Internationalization_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Internationalization Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internationalization_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Internationalization Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>MOS__c</fullName>
+        <description>Mobile Offline Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Mobile_Offline_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Mobile Offline Status</inlineHelpText>
+        <label>MOS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Possible_Score__c</fullName>
+        <description>Maximum Possible Score</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Maximum Possible Score - Categories with weight set to 0 are excluded</inlineHelpText>
+        <label>Max Possible Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mobile_Offline_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Mobile &amp; Offline Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_Offline_Response__c</fullName>
+        <description>Mobile requirements bounded by S1 mobile platform and Mobile SDK ? Or goes into offline capabilities ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Mobile requirements bounded by S1 mobile platform and Mobile SDK ? Or goes into offline capabilities ?</inlineHelpText>
+        <label>Mobile &amp; Offline Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low:  Offline-only applications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: Complex, branded UI requires developer skills. Offline synchronization is available in limited scenarios with developer support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Ready to go mobile client for iOS/Android with Salesforce1 app. Standard UI framework with some customizations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_Offline_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Mobile_Offline_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Mobile_Offline_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Mobile_Offline_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Mobile_Offline_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Mobile &amp; Offline Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mobile_Offline_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Mobile &amp; Offline Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Overall_Score__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Overall Score - Sum of each of the individual score. Use the formula field on the page layout.</description>
+        <externalId>false</externalId>
+        <label>Calculated Overall Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RAS__c</fullName>
+        <description>Reporting and Anaytics Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Reporting_Analytics_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Reporting and Anaytics Status</inlineHelpText>
+        <label>RAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reporting_Analytics_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Reporting &amp; Analytics Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Reporting_Analytics_Response__c</fullName>
+        <description>Reporting &amp; Analytics Response Score. 0-3 (0 = Not Applicable)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What are the desired reporting ? Standard salesforce reports and Dasboards? 
+Or is the requirement for customized visualization ?</inlineHelpText>
+        <label>Reporting &amp; Analytics Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Multi-dimensional analysis/data mining (usually associated with datawarehouse). Multi-sourced data, Print quality output</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: Limited historical and trend reporting. Alternative data visualisations possible with Reporting API but developer skills required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: Easy end-user reporting and dashboards with common pie/bar/line charts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reporting_Analytics_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Reporting_Analytics_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Reporting_Analytics_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Reporting_Analytics_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Reporting_Analytics_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Reporting &amp; Analytics Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reporting_Analytics_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Reporting &amp; Analytics Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SS__c</fullName>
+        <description>Search Response Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Search_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Search Response Status</inlineHelpText>
+        <label>SS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Search_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Search Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Search_Response__c</fullName>
+        <description>Are search requirements focused on data stored with Salesforce ? Global search capabilities ? Or will be using parametized search ?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Are search requirements focused on data stored with Salesforce ? Global search capabilities ? Or will be using parametized search ?</inlineHelpText>
+        <label>Search Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Complex parameter/facetted searching Complex segmentation rules</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: Parameter searching requiring custom UIs and dynamic database queries requires developer support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High: All data records, files, and social posts indexed automatically for quick global search</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Search_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Search_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Search_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(Search_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Search_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Search Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Search_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Search Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TVS__c</fullName>
+        <description>Transaction Volume Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Transaction_Volume_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TVS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Volume_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>Transaction Volume Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Volume_Response__c</fullName>
+        <description>Transaction Volume Response Score. 0-3 (0 = Not Applicable)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How is the application data generated / How does this application get its data?
+What is the average Transactions Per Second (or some other appropriate metrics)?</inlineHelpText>
+        <label>Transaction Volume Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low : Very high-volume, real-time, connected device/ data logging</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium : High-volume transactions fed from other systems</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High : User-driven transactions through UI/API</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Volume_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(Transaction_Volume_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(Transaction_Volume_Weight__c)),
+&quot;2&quot;, 2 * VALUE(TEXT(Transaction_Volume_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(Transaction_Volume_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transaction Volume Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Volume_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>Transaction Volume Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>UIS__c</fullName>
+        <description>User Interface Status</description>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(User_Interface_Response__c),1), 
+&quot;1&quot;, IMAGE(&apos;/resource/kla_trafficlight_red&apos;,&apos;Red&apos;), 
+&quot;2&quot;, IMAGE(&apos;/resource/kla_trafficlight_yellow&apos;,&apos;Yellow&apos;), 
+&quot;3&quot;, IMAGE(&apos;/resource/kla_trafficlight_green&apos;,&apos;Green&apos;), 
+NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>User Interface Statusd</inlineHelpText>
+        <label>UIS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Interface_Comments__c</fullName>
+        <description>Specific project comments pertaining to this category, or justification of score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comments regarding this category such as justification of score.</inlineHelpText>
+        <label>User Interface Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>User_Interface_Response__c</fullName>
+        <description>Utilize the standard UI and Page Elements in Salesforce ? Follow standard business processes?  or desire to create complex consumer oriented screens and processes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Utilize the standard UI and Page Elements in Salesforce ? Follow standard business processes?  or desire to create complex consumer oriented screens and processes.</inlineHelpText>
+        <label>User Interface Response</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0: Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1: Fit - Low: Complex, high-performance consumer-facing UI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2: Fit - Medium: Custom UI can be developed but developer skills required (VF, OrchestraCMS, Site.com, etc)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3: Fit - High:  Ready to go UI for common business tasks (record create/read/update/delete), master-detail, lookups/pick-lists, validation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>User_Interface_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(LEFT(TEXT(User_Interface_Response__c),1), 
+&quot;0&quot;, 0, 
+&quot;1&quot;, VALUE(TEXT(User_Interface_Weight__c)), 
+&quot;2&quot;, 2 * VALUE(TEXT(User_Interface_Weight__c)), 
+&quot;3&quot;, 3 * VALUE(TEXT(User_Interface_Weight__c)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>User Interface Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Interface_Weight__c</fullName>
+        <description>Importance of this category to the project or application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter an importance weighting between 0-10. [ 0 means not applicable].</inlineHelpText>
+        <label>User Interface Weight</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Fit Analysis</label>
+    <listViews>
+        <fullName>All_Applications_Details</fullName>
+        <columns>Application_Name__c</columns>
+        <columns>ACS__c</columns>
+        <columns>ARS__c</columns>
+        <columns>BPS__c</columns>
+        <columns>CS__c</columns>
+        <columns>DSS__c</columns>
+        <columns>DTS__c</columns>
+        <columns>DVS__c</columns>
+        <columns>ICS__c</columns>
+        <columns>IS__c</columns>
+        <columns>MOS__c</columns>
+        <columns>RAS__c</columns>
+        <columns>SS__c</columns>
+        <columns>TVS__c</columns>
+        <columns>UIS__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Applications Details</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Applications_Summary</fullName>
+        <columns>NAME</columns>
+        <columns>Application_Name__c</columns>
+        <columns>Assessment_Date__c</columns>
+        <columns>Overall_Score__c</columns>
+        <columns>Max_Possible_Score__c</columns>
+        <columns>Fit_Percentage__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Applications Summary</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Fit-{0000}</displayFormat>
+        <label>FitAnalysis Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Fit Analysis</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Application_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Assessment_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Overall_Score__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Max_Possible_Score__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Fit_Percentage__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Application_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Assessment_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Application_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Assessment_Date__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Application_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Assessment_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Overall_Score__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Max_Possible_Score__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Fit_Percentage__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

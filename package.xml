@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Fit_Analysis_App</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>FitAnalysis__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>FitAnalysis__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>FitAnalysis__c-FitAnalysis Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Fit_Analysis_User</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Fit_Analysis</members>
+        <members>Fit_Analysis/Fit_Analysis_Report</members>
+        <members>Fit_Analysis/Fit_Analysis_Status</members>
+        <members>Fit_Analysis/Fit_Analysis_Summary</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>kla_trafficlight_green</members>
+        <members>kla_trafficlight_red</members>
+        <members>kla_trafficlight_yellow</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
+        <members>FitAnalysis__c</members>
+        <name>Workflow</name>
+    </types>
+    <version>32.0</version>
+</Package>
