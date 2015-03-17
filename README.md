@@ -3,7 +3,7 @@ Application that determines whether an application is a good fit for SFDC platfo
 
 History
 -------------------------------------------
-03/13	Sandip Dhara	Created v2.2
+03/16	Sandip Dhara	Created v2.2
 -------------------------------------------
 
 Changes in Version 2.2 from 1.0
